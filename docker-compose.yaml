@@ -1,0 +1,8 @@
+name: knu-ai
+
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: knu-ai_ollama
+    ports:
+      - "11434:11434"
