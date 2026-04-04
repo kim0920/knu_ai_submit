@@ -6,7 +6,7 @@ from embeddings import get_embeddings
 from typing import List
 from dotenv import load_dotenv
 from os import getenv
-from os.path import isfile
+from os.path import exists
 
 load_dotenv()
 
@@ -71,7 +71,7 @@ def load_vector_to_local() -> FAISS:
     return FAISS.load_local(
         path_str,
         get_embeddings(),
-        allow_dangerous_deserialization=True #?
+        allow_dangerous_deserialization=True
     )
 
 #벡터스토어 초기화
@@ -83,7 +83,9 @@ def init_vectorstore():
     
 #벡터스토어 반환
 def get_vectorstore()->FAISS:
-    if isfile(getenv("SAVE_PATH")):
+    if exists(getenv("SAVE_PATH")):
         return load_vector_to_local()
     else:
         return init_vectorstore()
+    
+#청킹---미구현---
