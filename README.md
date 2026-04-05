@@ -1,3 +1,11 @@
+# 설정
+.env 파일에 
+```
+FILE_PATH = "data/dataset.csv"
+SAVE_PATH = "data/vecs"
+```
+가 존재해야 합니다.
+
 # 출력 예시
 
 ```
