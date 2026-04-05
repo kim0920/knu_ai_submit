@@ -83,8 +83,9 @@ def init_vectorstore():
     
 #벡터스토어 반환
 def get_vectorstore()->FAISS:
-    if exists(getenv("SAVE_PATH")):
-        return load_vector_to_local()
+    save_path = getenv("SAVE_PATH")
+    if exists():
+        return load_vector_to_local(save_path)
     else:
         return init_vectorstore()
     
